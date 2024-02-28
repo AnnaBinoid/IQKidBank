@@ -1,8 +1,7 @@
 package data;
 
-import logic.bank.SavingAccount;
+import logic.SavingAccount;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 

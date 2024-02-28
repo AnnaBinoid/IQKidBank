@@ -1,7 +1,7 @@
 package view;
 
 import data.Customer;
-import data.MarkStatus;
+import logic.MarkStatus;
 
 import java.util.Date;
 import java.util.HashMap;
