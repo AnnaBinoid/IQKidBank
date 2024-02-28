@@ -14,6 +14,11 @@ public class MarkStatus {
     ArrayList<Integer> quarterGrades = new ArrayList<>();
     ArrayList<Integer> yearGrades = new ArrayList<>();
     ArrayList<Integer> test = new ArrayList<>();
+
+    public void setAllSumForGrades(int allSumForGrades) {
+        this.allSumForGrades = allSumForGrades;
+    }
+
     public int allSumForGrades;
 
     final int EXCELLENT = 5;
@@ -49,6 +54,7 @@ public class MarkStatus {
     /**
      * Есть проверка на то, что введенное значение со сканера - инт, иначе приложение будет крашиться
      * из-за неправильного ввода.
+     *
      * @return
      */
     public ArrayList<Integer> setGradesByOne() {
@@ -172,7 +178,7 @@ public class MarkStatus {
      *
      * @return allSumForGrades возвращает общую сумму выплат за оценки.
      */
-    public Integer getCurrentGradesCoefficient(){
+    public Integer getCurrentGradesCoefficient() {
         int[][] a = numberOfMarks(setGradesByOne());
         int[][] b = setGradesCoefficient();
         int[][] getSumMoneyForGrades = createMarkArray();
@@ -188,7 +194,8 @@ public class MarkStatus {
         }
         System.out.println("Your money coefficient for marks is: ");
         printDoubleArray(getSumMoneyForGrades);
-        System.out.println("All summ is: " + allSumForGrades);
+        System.out.println("All sum is: " + allSumForGrades);
+        setAllSumForGrades(allSumForGrades);
 
         return allSumForGrades;
     }
