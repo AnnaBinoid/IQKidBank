@@ -1,5 +1,6 @@
 import view.BankAccount;
 
+
 public class Main {
     public static void main(String[] args) {
         //1. Разработать систему регистрации пользователя.
@@ -11,8 +12,6 @@ public class Main {
         // перевести/оплатить
         // рассчитать денежный коэффициент оценкам
         //4. Разработать логику перевода оценок в денежный эквивалент
-
-
         BankAccount first = new BankAccount();
         first.enterByRegistration();
     }

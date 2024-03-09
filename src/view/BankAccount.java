@@ -10,17 +10,15 @@ import java.util.Scanner;
 
 public class BankAccount {
 
-
     private String customerName;
+    private String status;
     private int customerID;
-    Scanner scan = new Scanner(System.in);
+    public Scanner scan = new Scanner(System.in);
     private static int amount = 0;
-    Map<String, Customer> customerMap = new HashMap<String, Customer>();
-
+    public Map<String, Customer> customerMap = new HashMap<String, Customer>();
 
     public BankAccount() {
     }
-
 
     public void enterByRegistration() {
         Customer customer;
@@ -47,7 +45,6 @@ public class BankAccount {
                     System.out.println("Set login, please : ");
                     String login = scan.next();
                     customerName = login;
-
 
                     while (bankAccount.customerMap.containsKey(login)) {
                         System.out.println("This login is already exists. Set again : ");
@@ -176,12 +173,11 @@ public class BankAccount {
 
                 case 3:
                     System.out.println("Thank you for choosing IQKidBank!");
-                    System.exit(1);
-                    break;
+                    scan.close();
+                    System.exit(0);
                 default:
                     System.out.println("Wrong choice! Try again!");
             }
-
         }
     }
 
@@ -228,7 +224,7 @@ public class BankAccount {
      * Метод showMenu показывает меню доступных операций
      */
     public void showMenu() {
-        System.out.printf("Please chose the operation:\n" +
+        System.out.println("Please chose the operation:\n" +
                 "0. Show menu.\n" +
                 "1. Check your balance.\n" +
                 "2. Deposit.\n" +
@@ -237,4 +233,5 @@ public class BankAccount {
                 "5. Make mark calculation.\n" +
                 "6. Exit.\n");
     }
+
 }

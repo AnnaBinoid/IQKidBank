@@ -1,19 +1,16 @@
 package data;
 
-import logic.SavingAccount;
+import logic.iMakeDeposite;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Customer extends Person implements SavingAccount {
+public class Customer extends Person implements iMakeDeposite {
+
     private String username;
-
     private String password;
-
     private int balance;
-
     private int id;
-
 
     private ArrayList<String> transactions = new ArrayList<>(10);
 
@@ -45,8 +42,6 @@ public class Customer extends Person implements SavingAccount {
     public int getId() {
         return id;
     }
-
-
 
     public String getUsername() {
         return username;

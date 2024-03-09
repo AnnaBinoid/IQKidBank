@@ -10,27 +10,25 @@ public class MarkStatus {
     //Считает сумму к переводу по алгоритму
 
     ArrayList<Integer> currentGrades = new ArrayList<>(100);
-
     ArrayList<Integer> quarterGrades = new ArrayList<>();
     ArrayList<Integer> yearGrades = new ArrayList<>();
     ArrayList<Integer> test = new ArrayList<>();
 
-    public void setAllSumForGrades(int allSumForGrades) {
-        this.allSumForGrades = allSumForGrades;
-    }
-
     public int allSumForGrades;
 
-    final int EXCELLENT = 5;
-    final int GOOD = 4;
-    final int SATISFACTORY = 3;
-    final int BAD = 2;
-    final int VERY_BAD = 1;
-    final int ROWS = 5;
-    final int COLUMNS = 2;
+    private final int EXCELLENT = 5;
+    private final int GOOD = 4;
+    private final int SATISFACTORY = 3;
+    private final int BAD = 2;
+    private final int VERY_BAD = 1;
+    private final int ROWS = 5;
+    private final int COLUMNS = 2;
 
     Scanner scan = new Scanner(System.in);
 
+    public void setAllSumForGrades(int allSumForGrades) {
+        this.allSumForGrades = allSumForGrades;
+    }
 
     /**
      * Метод createMarkArray создает двумерную матрицу для массива оценок
@@ -62,7 +60,6 @@ public class MarkStatus {
         System.out.println("Enter the school grades via enter!");
         int currentGrade;
         do {
-
             if (scan.hasNextInt()) {
                 currentGrade = scan.nextInt();
                 if (currentGrade != -1) {
@@ -83,8 +80,6 @@ public class MarkStatus {
                 String str = scan.nextLine();
                 System.out.println(String.format("Invalid input: %s cannot be converted to an int.", str));
             }
-
-
         }
         while (scan.hasNextLine());
 
@@ -99,6 +94,21 @@ public class MarkStatus {
     public void printList(ArrayList arrForPrint) {
         System.out.print("You have entered the following estimates: ");
         System.out.println(arrForPrint.toString());
+    }
+
+    /**
+     * Метод printDoubleArray распечатывает матрицу
+     *
+     * @param arr матрица для распечатки
+     */
+    public void printMatrix(int[][] arr) {
+        // распечатываем массив
+        for (int i = 0; i < ROWS; i++) {  //идём по строкам
+            for (int j = 0; j < COLUMNS; j++) {//идём по столбцам
+                System.out.print(" " + arr[j][i] + " "); //вывод элемента
+            }
+            System.out.println();//перенос строки ради визуального сохранения табличной формы
+        }
     }
 
     /**
@@ -124,25 +134,9 @@ public class MarkStatus {
                 countOfMarks[1][4] += 1;
             }
         }
-
-        printDoubleArray(countOfMarks);
+        printMatrix(countOfMarks);
 
         return countOfMarks;
-    }
-
-    /**
-     * Метод printDoubleArray распечатывает матрицу
-     *
-     * @param arr матрица для распечатки
-     */
-    public void printDoubleArray(int[][] arr) {
-        // распечатываем массив
-        for (int i = 0; i < ROWS; i++) {  //идём по строкам
-            for (int j = 0; j < COLUMNS; j++) {//идём по столбцам
-                System.out.print(" " + arr[j][i] + " "); //вывод элемента
-            }
-            System.out.println();//перенос строки ради визуального сохранения табличной формы
-        }
     }
 
     /**
@@ -163,7 +157,9 @@ public class MarkStatus {
         marksMoneyCoeff[1][3] = scan.nextInt();
         System.out.println("Enter the money coefficient for very bad mark (1): ");
         marksMoneyCoeff[1][4] = scan.nextInt();
-        printDoubleArray(marksMoneyCoeff);
+
+        printMatrix(marksMoneyCoeff);
+
         return marksMoneyCoeff;
     }
 
@@ -190,13 +186,13 @@ public class MarkStatus {
                     allSumForGrades += getSumMoneyForGrades[j][i];
                 } else getSumMoneyForGrades[j][i] = a[j][i];
             }
-
         }
         System.out.println("Your money coefficient for marks is: ");
-        printDoubleArray(getSumMoneyForGrades);
+        printMatrix(getSumMoneyForGrades);
         System.out.println("All sum is: " + allSumForGrades);
         setAllSumForGrades(allSumForGrades);
 
         return allSumForGrades;
     }
+
 }

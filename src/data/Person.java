@@ -1,15 +1,14 @@
 package data;
 
 public class Person {
+
     private String firstName;
-
     private String lastName;
-
     private String address;
-
     private String phone;
 
     public Person() {
+
     }
 
     public Person(String firstName, String lastName, String address, String phone) {
